@@ -1,4 +1,3 @@
-import DatesFilter from "../DatesFilter/DatesFilter";
 import Graph from "../Graph/Graph";
 
 const App = () => {
