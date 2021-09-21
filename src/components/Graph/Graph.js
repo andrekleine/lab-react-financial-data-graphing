@@ -77,7 +77,10 @@ const Graph = () => {
 
   return (
     <div>
-      <DatesFilter filterGraph={filterGraph} />
+      <DatesFilter 
+        filterGraph={filterGraph}
+        state={state}
+      />
       <canvas id="myChart"></canvas>
     </div>
   );

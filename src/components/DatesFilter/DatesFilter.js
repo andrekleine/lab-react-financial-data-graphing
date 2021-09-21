@@ -1,7 +1,7 @@
 import './DatesFilter.css';
 import { useState, useEffect } from "react";
 
-const DatesFilter = ({ filterGraph }) => {
+const DatesFilter = ({ filterGraph, state }) => {
   const [dates, setDates] = useState({
     start: '',
     end: ''
@@ -14,9 +14,7 @@ const DatesFilter = ({ filterGraph }) => {
 
   useEffect(() => {
     filterGraph(dates.start, dates.end);
-  }, [dates]);    
-
-  
+  }, [dates]);  
 
   return (
     <div>
@@ -28,6 +26,8 @@ const DatesFilter = ({ filterGraph }) => {
             name="start"            
             value={dates.start}
             onChange={handleChange}
+            min={state.dates[0]}
+            max={state.dates[state.dates.length - 1]}
           />          
         </div>
         <div className="end-date">
@@ -37,6 +37,8 @@ const DatesFilter = ({ filterGraph }) => {
             name="end" 
             value={dates.end}
             onChange={handleChange}
+            min={state.dates[0]}
+            max={state.dates[state.dates.length - 1]}
           />          
         </div>        
       </form>
